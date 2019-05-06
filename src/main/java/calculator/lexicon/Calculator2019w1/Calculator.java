@@ -22,11 +22,9 @@ public class Calculator {
 			double second = Double.parseDouble(getInput());
 			
 			String calcResult = switchCalc(first, operator, second);
-			
 			System.out.println(calcResult);
-			
 	        
-			System.out.println(menu());
+			System.out.println(showMenu());
 			String menuCommand = getInput();
 			if(menuCommand.equals("1")){
 				System.out.println("[Calculator] Restarting");
@@ -35,30 +33,27 @@ public class Calculator {
 				System.out.println("[Calculator] Exited program");
 				calcLoop = false;
 			} else {
-				System.out.println("[Calculator] Invalid Menu Selection, Exiting...");
-				calcLoop = false;
+				System.out.println("[Calculator] Invalid Menu Selection, Restarting...");
 			}
-		}while(calcLoop);
+		}
+		while(calcLoop);
 	}
-
+	
 	public static String getInput(){
    	 String input = SCANNER.nextLine();
    	 return input;
     }
-	public static String menu() {
+	public static String showMenu() {
 		String menu = "[Calculator] Menu: \n1 = New Calculation, 2 = Exit";
 		return menu;
 	}
-	
 	public static String resultShow(double result) {
-		String calcString = "[Calculator] " + result;
+		String calcString = "[Calculator] Result: " + result;
 		return calcString;
 	}
 
 	public static String switchCalc(double first, char operator, double second) {
-		
 		double result = 0;
-	
 		switch(operator) {
         case '+':
         	result = resultPlus(first, second);
@@ -66,7 +61,7 @@ public class Calculator {
         case '-':
         	result = resultSubtract(first, second);
             break;
-        case '/':
+        case '/': 
         	result = resultDivide(first, second);
         	break;
         case '*':
@@ -82,7 +77,6 @@ public class Calculator {
 		double calculation = first + second;
 		return calculation;
 	}
-	
 	public static double resultSubtract(double first, double second) {
 		double calculation = first - second;
 		return calculation;
