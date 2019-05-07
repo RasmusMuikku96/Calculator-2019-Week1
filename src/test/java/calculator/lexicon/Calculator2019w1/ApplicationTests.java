@@ -42,9 +42,9 @@ public class ApplicationTests {
 		}
 
 	@Test
-	public void test_Correct_Menu(){
+	public void test_Correct_showMenu(){
 		String expectedTestMenu = "[Calculator] Menu: \n1 = New Calculation, 2 = Exit";
-		String actualMenu = Calculator.menu();
+		String actualMenu = Calculator.showMenu();
 		
 		Assert.assertEquals(expectedTestMenu, actualMenu);
 		
